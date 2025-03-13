@@ -172,3 +172,4 @@ MonoBehaviour:
   - {fileID: 475090294866900020, guid: c2e7f1a6abc67914bb13a1a37353576e, type: 3}
   - {fileID: 8236924946460838433, guid: 4e8b2df5e9fd74a4cab6b549171c267e, type: 3}
   - {fileID: 173324223840878752, guid: 9012f1546ee7e2a4f82b5374d4a76644, type: 3}
+  explosionPrefab: {fileID: 7455976065821456092, guid: 3af491629ad8f2840bedb1d2293daf72, type: 3}

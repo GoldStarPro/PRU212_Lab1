@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             if (!isShieldActive && !isInvincible)
             {
+                GameManager.Instance.MinusScore(300);
                 health -= 1f;
                 Debug.Log("Player health: " + health);
                 UpdateSprite();
