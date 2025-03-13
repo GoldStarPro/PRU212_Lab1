@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         score += points;
     }
 
+    public void MinusScore(int points)
+    {
+        score -= points;
+        if (score <= 300) score = 0;
+    }    
     public void SaveGameData(float survivalTime)
     {
         // Lấy danh sách điểm số hiện tại từ PlayerPrefs

@@ -5,6 +5,8 @@ public class Asteroid : MonoBehaviour
     public float health = 2f; // Giá trị mặc định, sẽ được cập nhật bởi AsteroidSpawner
     public bool isBigAsteroid;
     [SerializeField] private GameObject[] powerUpPrefabs;
+    [SerializeField] private ParticleSystem explosionPrefab; // Prefab hiệu ứng nổ
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,8 +16,16 @@ public class Asteroid : MonoBehaviour
             health -= damage;
             Debug.Log($"Asteroid hit! Health: {health}, Damage: {damage}");
             Destroy(collision.gameObject);
+            
             if (health <= 0)
             {
+                // Tạo hiệu ứng nổ trước khi hủy thiên thạch
+                if (explosionPrefab != null)
+                {
+                    Debug.Log("Explosion");
+                    ParticleSystem explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                    explosion.Play();
+                }
                 if (isBigAsteroid)
                 {
                     GameManager.Instance.AddScore(100);
